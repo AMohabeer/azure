@@ -2,10 +2,12 @@
 -- useful link for setting up dbt for snowflake: https://docs.getdbt.com/docs/core/connect-data-platform/snowflake-setup
 -- install and set up DBT core with a snowflake data warehouse:
 -- https://www.youtube.com/watch?v=ZbLzOgAMAwk
+-- CK Data Tech (good video on DBT core with snowflake)
 
 -- installation instructions for DBT, with snowflake (briefly)
 -- 1) obtain a snowflake account and run the following commands in snowsight: CREATE DATABASE DBT_ETL; CREATE SCHEMA STAGING;
--- 2) install dbt core and dbt snowflake
+-- 2) install dbt core and dbt snowflake using the following python install statements:
+--    python -m pip install dbt-core dbt-snowflake (note you will need to install python first 3.10)
 -- 3) from whichever working folder you want to create your DBT repo on your local machine, run dbt init from the command line
 --    i chose the folder: cd C:\Users\User\NHS_2005_2006_NWL\DBT
 --    i had this error: ModuleNotFoundError: No module named 'urllib3.packages.six.moves', so I had to run the following code:
@@ -45,7 +47,7 @@ CREATE TABLE sales (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
---1st run -> initial run
+--1st run -> initial run (initially populate the sales table)
 INSERT INTO sales (order_id, product_id, customer_id, quantity, price, sale_date, updated_at)
 VALUES
 ('ORD001', 'PROD001', 'CUST001', 3, 29.99, '2025-01-01 10:15:00', '2025-01-01 10:15:00'),
