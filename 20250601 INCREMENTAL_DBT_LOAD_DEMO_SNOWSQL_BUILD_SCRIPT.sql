@@ -25,13 +25,14 @@
 -- 6) and  Run 'dbt debug' to validate the connection. Note that the emphasis for the whole time is on 'dev'
 --    the DBT set up is expressly for your 'dev' environment
   
--- The snowSQL for the DBT incrementatal transform demonstration
+-- The snowSQL for the DBT incremental transform demonstration
 -- from: https://www.youtube.com/watch?v=MgSO6458c_4
 -- (DBT Incremental Models Made Easy with Snowflake Data Warehouse) CK Data Tech
 
 CREATE DATABASE DBT_ETL;
 USE DATABASE DBT_ETL;
 CREATE SCHEMA STAGING;
+CREATE SCHEMA BASE;
 
 CREATE TABLE sales (
     id INT AUTOINCREMENT PRIMARY KEY,
